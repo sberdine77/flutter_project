@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'HomeContentView.dart';
 import 'RestrictedContentView.dart';
+import '../services/AuhtenticationService.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -20,7 +22,15 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter project')
+        title: Text('Flutter project'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.person),
+            onPressed: () {
+              openPage(context);
+            },
+          )
+        ],
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -45,4 +55,25 @@ class _HomeState extends State<Home> {
       _currentIndex = index;
     });
   }
+}
+
+
+void openPage(BuildContext context) {
+  Navigator.push(context, MaterialPageRoute(
+    builder: (BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Profile'),
+        ),
+        body: Center(
+          child: RaisedButton(
+            onPressed: () {
+              context.read<AuthenticationService>().signOut();
+            },
+            child: Text("Sign out"),
+          ),
+        ),
+      );
+    },
+  ));
 }
