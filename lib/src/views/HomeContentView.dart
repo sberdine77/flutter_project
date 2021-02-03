@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/src/viewModels/HomeContentViewModel.dart';
+import 'package:loading/loading.dart';
 import '../models/Document.dart';
 
 class HomeContentView extends StatefulWidget {
@@ -9,14 +11,27 @@ class HomeContentView extends StatefulWidget {
 }
 
 class _HomeContentViewState extends State<HomeContentView> {
-  List<Document> _documents = testHomeDocuments;
+  //List<Document> _documents = testHomeDocuments;
+  var _viewModel = HomeContentViewModel();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: new Center(
-        child: new ListView(
-          children: _documents.map(_buildListItem).toList(),
-        ),
+        child: FutureBuilder<List<Document>>(
+          future: _viewModel.getHomeDocuments(),
+          builder: (BuildContext context, AsyncSnapshot<List<Document>> snapshot) {
+            //print(snapshot);
+            if(snapshot.hasData) {
+              print("Lista");
+              return ListView(
+                children: snapshot.data.map(_buildListItem).toList(),
+              );
+            } else {
+              print("Loading");
+              return Loading(size: 100.0,color: Colors.grey);
+            }
+          },
+        )
       )
     );
   }
