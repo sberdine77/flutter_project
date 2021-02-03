@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import './src/views/HomeView.dart';
 import './src/views/LoginView.dart';
+import './src/views/SignUpView.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import './src/services/AuhtenticationService.dart';
@@ -40,6 +41,6 @@ class AuthWrapper extends StatelessWidget {
     if (firebaseUser != null) {
       return Home();
     }
-    return LoginView();
+    return SignUpView();
   }
 }
