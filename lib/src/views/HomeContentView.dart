@@ -22,12 +22,10 @@ class _HomeContentViewState extends State<HomeContentView> {
           builder: (BuildContext context, AsyncSnapshot<List<Document>> snapshot) {
             //print(snapshot);
             if(snapshot.hasData) {
-              print("Lista");
               return ListView(
                 children: snapshot.data.map(_buildListItem).toList(),
               );
             } else {
-              print("Loading");
               return Loading(size: 100.0,color: Colors.grey);
             }
           },
