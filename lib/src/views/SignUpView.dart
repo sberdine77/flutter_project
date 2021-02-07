@@ -84,10 +84,17 @@ class _SignUpViewState extends State<SignUpView> {
                 child: RaisedButton(
                   onPressed: () {
                     //_viewModel.signUp(context: context, email: emailTextFieldController.text, password: passwordTextFieldController.text);
-                    print("AQUI");
-                    _viewModel.googleSignIn(context: context);
                   },
                   child: Text("Sign in"),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: RaisedButton(
+                  onPressed: () {
+                    _viewModel.googleSignIn(context: context);
+                  },
+                  child: Text("Sign up with Google"),
                 ),
               )
             ],

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_project/src/views/CameraView.dart';
 import './src/views/HomeView.dart';
 import './src/views/LoginView.dart';
 import './src/views/SignUpView.dart';

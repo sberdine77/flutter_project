@@ -23,4 +23,8 @@ class LoginViewModel {
     context.read<AuthenticationService>().signIn(email: email, password: password);
   }
 
+  void googleSignIn({BuildContext context}) {
+    context.read<AuthenticationService>().signInWithGoogle();
+  }
+
 }

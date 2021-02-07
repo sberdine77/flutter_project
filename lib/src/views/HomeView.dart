@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/src/views/ProfileView.dart';
 import 'HomeContentView.dart';
 import 'RestrictedContentView.dart';
 import '../services/AuhtenticationService.dart';
@@ -59,6 +60,7 @@ class _HomeState extends State<Home> {
 
 
 void openPage(BuildContext context) {
+
   Navigator.push(context, MaterialPageRoute(
     builder: (BuildContext context) {
       return Scaffold(
@@ -66,12 +68,7 @@ void openPage(BuildContext context) {
           title: const Text('Profile'),
         ),
         body: Center(
-          child: RaisedButton(
-            onPressed: () {
-              context.read<AuthenticationService>().signOut();
-            },
-            child: Text("Sign out"),
-          ),
+          child: ProfileView(),
         ),
       );
     },

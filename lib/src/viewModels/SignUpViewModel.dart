@@ -31,7 +31,6 @@ class SignUpViewModel {
   }
 
   void googleSignIn({BuildContext context}) {
-    print("vm");
     context.read<AuthenticationService>().signInWithGoogle();
   }
 

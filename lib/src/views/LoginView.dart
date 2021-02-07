@@ -74,6 +74,15 @@ class _LoginViewState extends State<LoginView> {
                     child: Text("Sign in"),
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: RaisedButton(
+                    onPressed: () {
+                      _viewModel.googleSignIn(context: context);
+                    },
+                    child: Text("Sign in with Google"),
+                  ),
+                )
               ],
             ),
           ),
