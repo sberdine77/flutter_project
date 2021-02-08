@@ -67,6 +67,7 @@ class _PreviewImageViewState extends State<PreviewImageView> {
                 child: RaisedButton(
                   onPressed: () async {
                     await _viewModel.uploadImage(context: context, image: widget.image);
+                    Navigator.of(context).popUntil((route) => route.isFirst);
                   },
                   child: Text('Use'),
                 ),

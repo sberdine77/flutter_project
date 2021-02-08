@@ -51,8 +51,9 @@ class _ProfileViewState extends State<ProfileView> {
             padding: const EdgeInsets.all(30.0)
         ),
         RaisedButton(
-          onPressed: () {
-            context.read<AuthenticationService>().signOut();
+          onPressed: () async {
+            await context.read<AuthenticationService>().signOut();
+            Navigator.of(context).popUntil((route) => route.isFirst);
           },
           child: Text("Sign out"),
         ),

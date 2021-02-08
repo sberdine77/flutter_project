@@ -1,9 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_project/src/views/CameraView.dart';
+import 'package:flutter_project/src/views/HomeCameraWrapperView.dart';
+import 'package:flutter_project/src/views/LoginWrapperView.dart';
 import './src/views/HomeView.dart';
-import './src/views/LoginView.dart';
-import './src/views/SignUpView.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import './src/services/AuhtenticationService.dart';
@@ -40,8 +39,8 @@ class AuthWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     final firebaseUser = context.watch<User>();
     if (firebaseUser != null) {
-      return Home();
+      return HomeCameraWrapperView();
     }
-    return LoginView();
+    return LoginWrapperView();
   }
 }

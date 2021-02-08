@@ -12,6 +12,7 @@ class FirebaseCommunication {
     await task.whenComplete(() async {
       print('File Uploaded');
       await storageReference.getDownloadURL().then((fileURL) async {
+        await registerUserData(uid: uid, name: "Example Name");
         await _registerFileUrl(uid: uid, imageUrl: fileURL);
       }).catchError((onError) {
         print(onError);

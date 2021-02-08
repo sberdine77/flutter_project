@@ -58,7 +58,7 @@ class AuthenticationService {
 
   Future<http.Response> generateToken() async {
     var idToken = await this._firebaseAuth.currentUser.getIdToken(true);
-    var url = 'http://localhost:3000/api/v1/sendToken';
+    var url = 'https://flutter-project-node.herokuapp.com/api/v1/sendToken';
     var response = await http.post(
       url,
       body: {'idToken': '$idToken'},
@@ -69,7 +69,7 @@ class AuthenticationService {
 
   Future<http.Response> checkToken(String token) async {
     var idToken = await this._firebaseAuth.currentUser.getIdToken(true);
-    var url = 'http://localhost:3000/api/v1/checkToken';
+    var url = 'https://flutter-project-node.herokuapp.com/api/v1/checkToken';
     var response = await http.post(
       url,
       body: {

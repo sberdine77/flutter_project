@@ -35,6 +35,9 @@ class _RestrictedContentViewState extends State<RestrictedContentView> {
   }
 
   Widget _buildListItem(Document document) {
-    return new Text(document.name);
+    return new Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Text(document.name)
+    );
   }
 }

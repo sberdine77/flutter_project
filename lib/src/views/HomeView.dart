@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project/src/views/ProfileView.dart';
 import 'HomeContentView.dart';
 import 'RestrictedContentView.dart';
-import '../services/AuhtenticationService.dart';
-import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   @override
