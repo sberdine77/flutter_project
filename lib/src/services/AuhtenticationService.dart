@@ -85,4 +85,21 @@ class AuthenticationService {
     await _firebaseAuth.currentUser.getIdToken(true);
   }
 
+  Future<bool> isUserAuthorizedUser() async {
+    var result = false;
+    await _firebaseAuth.currentUser.getIdTokenResult()
+        .then((idTokenResult) {
+          if(idTokenResult.claims['authorized_user'] == null) {
+            result = false;
+          } else {
+            result = true;
+          }
+        })
+        .catchError((onError) {
+          print(onError);
+          result =  false;
+        });
+    return result;
+  }
+
 }

@@ -83,9 +83,9 @@ class _SignUpViewState extends State<SignUpView> {
                 padding: const EdgeInsets.all(15.0),
                 child: RaisedButton(
                   onPressed: () {
-                    //_viewModel.signUp(context: context, email: emailTextFieldController.text, password: passwordTextFieldController.text);
+                    _viewModel.signUp(context: context, email: emailTextFieldController.text, password: passwordTextFieldController.text);
                   },
-                  child: Text("Sign in"),
+                  child: Text("Sign up"),
                 ),
               ),
               Padding(
